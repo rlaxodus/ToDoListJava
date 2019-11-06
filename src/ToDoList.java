@@ -22,7 +22,11 @@ public class ToDoList {
 
     public Task getTask(final String taskName) {
         // Add code here
-        return this.tasks.get(taskName);
+        if(tasks.containsKey(taskName)) {
+        	 return this.tasks.get(taskName);
+        }
+        return null;
+        
     }
 
     public Task removeTask(final String taskName) {

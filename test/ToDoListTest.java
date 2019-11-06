@@ -94,4 +94,16 @@ public class ToDoListTest extends TestCase {
         // Then
         assertEquals(toDoList.getCompletedTasks().size(), 1);
     }
+    @Test
+    public void testViewTasks() {
+        // Given
+        final ToDoList toDoList = new ToDoList();
+        final Task task = new Task("Task 4", "Fourth Task", false);
+        toDoList.addTask(task);
+        	Task task1= toDoList.getTask("Task 4");
+        	Task task2= toDoList.getTask("Task 5");
+        	assertEquals(task1.getTaskName(),"Task 4");
+        	assertEquals(task2,null);
+    
+    }
 }
