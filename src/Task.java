@@ -16,6 +16,14 @@ public class Task {
         this.taskName = taskName;
     }
 
+    public String getTaskName() {
+        return this.taskName;
+    }
+
+    public void setTaskName(final String taskName) {
+        this.taskName = taskName;
+    }
+
     public String getDescription() {
         return this.description;
     }

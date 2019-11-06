@@ -7,27 +7,27 @@ public class ToDoList {
 
     public void addTask(final Task task) {
         // Add code here
-        this.tasks.put(task.getDescription(), task);
+        this.tasks.put(task.getTaskName(), task);
     }
 
-    public void completeTask(final String description) {
+    public void completeTask(final String taskName) {
         // Add code here
-        this.tasks.get(description).setComplete(true);
+        this.tasks.get(taskName).setComplete(true);
     }
 
-    public boolean getStatus(final String description) {
+    public boolean getStatus(final String taskName) {
         // Add code her
-        return this.tasks.get(description).isComplete();
+        return this.tasks.get(taskName).isComplete();
     }
 
-    public Task getTask(final String description) {
+    public Task getTask(final String taskName) {
         // Add code here
-        return this.tasks.get(description);
+        return this.tasks.get(taskName);
     }
 
-    public Task removeTask(final String description) {
+    public Task removeTask(final String taskName) {
         // Add code here
-        return this.tasks.remove(description);
+        return this.tasks.remove(taskName);
     }
 
     public Collection<Task> getAllTasks() {
