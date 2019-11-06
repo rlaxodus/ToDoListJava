@@ -1,4 +1,4 @@
-import java.util.List;
+import java.util.Collection;
 
 import org.junit.After;
 import org.junit.Before;
@@ -87,7 +87,7 @@ public class ToDoListTest extends TestCase {
         toDoList.addTask(task5);
 
         // When
-        final List<Task> results = toDoList.searchTaskByDescription("Task");
+        final Collection<Task> results = toDoList.searchTaskByDescription("Task");
 
         // Then
         assertEquals(results.size(), 4);
@@ -118,4 +118,16 @@ public class ToDoListTest extends TestCase {
         // Then
         assertEquals(toDoList.getCompletedTasks().size(), 1);
     }
+
+    @Test
+    public void testEditTasks() {
+        final ToDoList toDoList = new ToDoList();
+        final Task task = new Task("Task 4", "Fourth Task", false);
+        toDoList.addTask(task);
+        final Task task1 = toDoList.editTask(new Task("Task 4", "Fourth Task Changed", true));
+        final Task task2 = toDoList.editTask(new Task("Task 5", "Fifth Task", true));
+        assertEquals(task1.getDescription(), "Fourth Task Changed");
+        assertEquals(task2, null);
+    }
+
 }

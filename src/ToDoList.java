@@ -1,6 +1,5 @@
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class ToDoList {
@@ -41,8 +40,18 @@ public class ToDoList {
 
     }
 
-    public List<Task> searchTaskByDescription(final String searchString) {
+    public Collection<Task> searchTaskByDescription(final String searchString) {
         return getAllTasks().stream().filter(task -> task.getDescription().contains(searchString))
                 .collect(Collectors.toList());
+    }
+
+    public Task editTask(final Task task) {
+        // Add code here
+        if (this.tasks.containsKey(task.getTaskName())) {
+            this.tasks.remove(task.getTaskName());
+            addTask(task);
+            return this.tasks.get(task.getTaskName());
+        }
+        return null;
     }
 }
