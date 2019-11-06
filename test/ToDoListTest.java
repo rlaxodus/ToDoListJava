@@ -75,11 +75,11 @@ public class ToDoListTest extends TestCase {
     public void testSearchByDescriptionContaining() {
         // Given
         final ToDoList toDoList = new ToDoList();
-        final Task task1 = new Task("Task 1", "First Task", false);
-        final Task task2 = new Task("Task 2", "Second Task", false);
-        final Task task3 = new Task("Task 3", "Third Task", false);
-        final Task task4 = new Task("Task 4", "Fourth Task", false);
-        final Task task5 = new Task("Task 5", "Fifth", false);
+        final Task task1 = new Task("Task 1", "First Task", false, Priority.Medium);
+        final Task task2 = new Task("Task 2", "Second Task", false, Priority.Medium);
+        final Task task3 = new Task("Task 3", "Third Task", false, Priority.Medium);
+        final Task task4 = new Task("Task 4", "Fourth Task", false, Priority.Medium);
+        final Task task5 = new Task("Task 5", "Fifth", false, Priority.Medium);
         toDoList.addTask(task1);
         toDoList.addTask(task2);
         toDoList.addTask(task3);
@@ -118,7 +118,7 @@ public class ToDoListTest extends TestCase {
         // Then
         assertEquals(toDoList.getCompletedTasks().size(), 1);
     }
-<<<<<<< HEAD
+
     @Test
     public void testViewTasks() {
         // Given
@@ -131,18 +131,15 @@ public class ToDoListTest extends TestCase {
         	assertEquals(task2,null);
     
     }
-=======
 
     @Test
     public void testEditTasks() {
         final ToDoList toDoList = new ToDoList();
-        final Task task = new Task("Task 4", "Fourth Task", false);
+        final Task task = new Task("Task 4", "Fourth Task", false, Priority.High);
         toDoList.addTask(task);
-        final Task task1 = toDoList.editTask(new Task("Task 4", "Fourth Task Changed", true));
-        final Task task2 = toDoList.editTask(new Task("Task 5", "Fifth Task", true));
+        final Task task1 = toDoList.editTask(new Task("Task 4", "Fourth Task Changed", true, Priority.High));
+        final Task task2 = toDoList.editTask(new Task("Task 5", "Fifth Task", true, Priority.High));
         assertEquals(task1.getDescription(), "Fourth Task Changed");
         assertEquals(task2, null);
     }
-
->>>>>>> branch 'master' of https://github.com/rlaxodus/ToDoListJava.git
 }
