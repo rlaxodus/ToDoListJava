@@ -54,6 +54,23 @@ public class ToDoListTest extends TestCase {
     }
 
     @Test
+    public void testSetTaskComplete() {
+        // Given
+        final ToDoList toDoList = new ToDoList();
+        final Task task = new Task("Task 4", false);
+        toDoList.addTask(task);
+        assertEquals(toDoList.getAllTasks().size(), 1);
+        assertFalse(toDoList.getTask("Task 4").isComplete());
+
+        // When
+        toDoList.completeTask("Task 4");
+
+        // Then
+        assertEquals(toDoList.getCompletedTasks().size(), 1);
+        assertTrue(toDoList.getTask("Task 4").isComplete());
+    }
+
+    @Test
     public void testgetStatus() {
 
         // Given
