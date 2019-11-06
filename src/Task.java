@@ -1,6 +1,6 @@
 
 public class Task {
-    private final String taskName = null;
+    private String taskName = null;
     private String description = null;
     private boolean isComplete = false;
 
@@ -9,10 +9,11 @@ public class Task {
         this.description = description;
     }
 
-    public Task(final String description, final boolean isComplete) {
+    public Task(final String taskName, final String description, final boolean isComplete) {
         super();
         this.description = description;
         this.isComplete = isComplete;
+        this.taskName = taskName;
     }
 
     public String getDescription() {
