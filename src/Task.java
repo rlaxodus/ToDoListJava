@@ -1,31 +1,34 @@
 
 public class Task {
-	private String description = null;
-	private boolean isComplete = false;
-	
-	
-	public Task(String description) {
-		super();
-		this.description = description;
-	}
-	
-	public Task(String description, boolean isComplete) {
-		super();
-		this.description = description;
-		this.isComplete = isComplete;
-	}
-	
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public boolean isComplete() {
-		return isComplete;
-	}
-	public void setComplete(boolean isComplete) {
-		this.isComplete = isComplete;
-	}
+    private final String taskName = null;
+    private String description = null;
+    private boolean isComplete = false;
+
+    public Task(final String description) {
+        super();
+        this.description = description;
+    }
+
+    public Task(final String description, final boolean isComplete) {
+        super();
+        this.description = description;
+        this.isComplete = isComplete;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(final String description) {
+        this.description = description;
+    }
+
+    public boolean isComplete() {
+        return this.isComplete;
+    }
+
+    public void setComplete(final boolean isComplete) {
+        this.isComplete = isComplete;
+    }
 
 }

@@ -24,7 +24,7 @@ public class ToDoListTest extends TestCase {
     }
 
     @Test
-    public void testAddTask() {
+    public void testCreateAddTask() {
         // Given
         final ToDoList toDoList = new ToDoList();
         final Task task = new Task("Task 1", false);
@@ -34,6 +34,23 @@ public class ToDoListTest extends TestCase {
 
         // Then
         assertEquals(toDoList.getAllTasks().size(), 1);
+        assertTrue(toDoList.getAllTasks().contains(task));
+    }
+
+    @Test
+    public void testRemoveTask() {
+        // Given
+        final ToDoList toDoList = new ToDoList();
+        final Task task = new Task("Task 3", false);
+        toDoList.addTask(task);
+        assertEquals(toDoList.getAllTasks().size(), 1);
+        assertTrue(toDoList.getAllTasks().contains(task));
+
+        // When
+        assertEquals(task, toDoList.removeTask("Task 3"));
+
+        // Then
+        assertEquals(toDoList.getAllTasks().size(), 0);
     }
 
     @Test
@@ -46,21 +63,6 @@ public class ToDoListTest extends TestCase {
 
         // Then
         assertFalse(toDoList.getStatus("Task 2"));
-    }
-
-    @Test
-    public void testRemoveTask() {
-        // Given
-        final ToDoList toDoList = new ToDoList();
-        final Task task = new Task("Task 3", false);
-        toDoList.addTask(task);
-        assertEquals(toDoList.getAllTasks().size(), 1);
-
-        // When
-        assertEquals(task, toDoList.removeTask("Task 3"));
-
-        // Then
-        assertEquals(toDoList.getAllTasks().size(), 0);
     }
 
     @Test
