@@ -18,6 +18,10 @@ public class Task {
         this.priority = priority;
     }
 
+    public boolean compareTo() {
+        return false;
+    }
+
     public String getTaskName() {
         return this.taskName;
     }
@@ -41,7 +45,6 @@ public class Task {
     public void setComplete(final boolean isComplete) {
         this.isComplete = isComplete;
     }
-
 	public Priority getPriority() {
 		return priority;
 	}

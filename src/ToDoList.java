@@ -43,4 +43,19 @@ public class ToDoList {
         return this.tasks.values().stream().filter(task -> task.isComplete() == true).collect(Collectors.toList());
 
     }
+
+    public Collection<Task> searchTaskByDescription(final String searchString) {
+        return getAllTasks().stream().filter(task -> task.getDescription().contains(searchString))
+                .collect(Collectors.toList());
+    }
+
+    public Task editTask(final Task task) {
+        // Add code here
+        if (this.tasks.containsKey(task.getTaskName())) {
+            this.tasks.remove(task.getTaskName());
+            addTask(task);
+            return this.tasks.get(task.getTaskName());
+        }
+        return null;
+    }
 }
