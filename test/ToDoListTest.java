@@ -27,7 +27,7 @@ public class ToDoListTest extends TestCase {
     public void testCreateAddTask() {
         // Given
         final ToDoList toDoList = new ToDoList();
-        final Task task = new Task("Task 1", "First Task", false);
+        final Task task = new Task("Task 1", "First Task", false, Priority.Low);
 
         // When
         toDoList.addTask(task);
@@ -41,7 +41,7 @@ public class ToDoListTest extends TestCase {
     public void testRemoveTask() {
         // Given
         final ToDoList toDoList = new ToDoList();
-        final Task task = new Task("Task 3", "Third Task", false);
+        final Task task = new Task("Task 3", "Third Task", false, Priority.Low);
         toDoList.addTask(task);
         assertEquals(toDoList.getAllTasks().size(), 1);
         assertTrue(toDoList.getAllTasks().contains(task));
@@ -57,7 +57,7 @@ public class ToDoListTest extends TestCase {
     public void testSetTaskComplete() {
         // Given
         final ToDoList toDoList = new ToDoList();
-        final Task task = new Task("Task 4", "Fourth Task", false);
+        final Task task = new Task("Task 4", "Fourth Task", false, Priority.Medium);
         toDoList.addTask(task);
         assertEquals(toDoList.getAllTasks().size(), 1);
         assertFalse(toDoList.getTask("Task 4").isComplete());
@@ -75,7 +75,7 @@ public class ToDoListTest extends TestCase {
 
         // Given
         final ToDoList toDoList = new ToDoList();
-        final Task task = new Task("Task 2", "Second Task", false);
+        final Task task = new Task("Task 2", "Second Task", false, Priority.High);
         toDoList.addTask(task);
 
         // Then
@@ -86,7 +86,7 @@ public class ToDoListTest extends TestCase {
     public void testGetCompletedTasks() {
         // Given
         final ToDoList toDoList = new ToDoList();
-        final Task task = new Task("Task 4", "Fourth Task", false);
+        final Task task = new Task("Task 4", "Fourth Task", false, Priority.High);
         toDoList.addTask(task);
         assertEquals(toDoList.getAllTasks().size(), 1);
         toDoList.completeTask("Task 4");
@@ -98,7 +98,7 @@ public class ToDoListTest extends TestCase {
     public void testViewTasks() {
         // Given
         final ToDoList toDoList = new ToDoList();
-        final Task task = new Task("Task 4", "Fourth Task", false);
+        final Task task = new Task("Task 4", "Fourth Task", false, Priority.High);
         toDoList.addTask(task);
         	Task task1= toDoList.getTask("Task 4");
         	Task task2= toDoList.getTask("Task 5");
