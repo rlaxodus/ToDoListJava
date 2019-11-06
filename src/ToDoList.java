@@ -1,5 +1,6 @@
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class ToDoList {
@@ -38,5 +39,10 @@ public class ToDoList {
         // Add code here
         return this.tasks.values().stream().filter(task -> task.isComplete() == true).collect(Collectors.toList());
 
+    }
+
+    public List<Task> searchTaskByDescription(final String searchString) {
+        return getAllTasks().stream().filter(task -> task.getDescription().contains(searchString))
+                .collect(Collectors.toList());
     }
 }

@@ -1,3 +1,5 @@
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -68,6 +70,28 @@ public class ToDoListTest extends TestCase {
         // Then
         assertEquals(toDoList.getCompletedTasks().size(), 1);
         assertTrue(toDoList.getTask("Task 4").isComplete());
+    }
+
+    public void testSearchByDescriptionContaining() {
+        // Given
+        final ToDoList toDoList = new ToDoList();
+        final Task task1 = new Task("Task 1", "First Task", false);
+        final Task task2 = new Task("Task 2", "Second Task", false);
+        final Task task3 = new Task("Task 3", "Third Task", false);
+        final Task task4 = new Task("Task 4", "Fourth Task", false);
+        final Task task5 = new Task("Task 5", "Fifth", false);
+        toDoList.addTask(task1);
+        toDoList.addTask(task2);
+        toDoList.addTask(task3);
+        toDoList.addTask(task4);
+        toDoList.addTask(task5);
+
+        // When
+        final List<Task> results = toDoList.searchTaskByDescription("Task");
+
+        // Then
+        assertEquals(results.size(), 4);
+        results.forEach(task -> assertTrue(task.getDescription().contains("Task")));
     }
 
     @Test

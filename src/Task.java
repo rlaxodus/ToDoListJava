@@ -16,6 +16,10 @@ public class Task {
         this.taskName = taskName;
     }
 
+    public boolean compareTo() {
+        return false;
+    }
+
     public String getTaskName() {
         return this.taskName;
     }
@@ -39,5 +43,4 @@ public class Task {
     public void setComplete(final boolean isComplete) {
         this.isComplete = isComplete;
     }
-
 }
